@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Humans as a Calibration Pattern</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;400;500;600&family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link href='https://fonts.googleapis.com/css?family=Architects Daughter' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
+
+
+    <!-- Bulma -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="./js/bulma_toggle.js"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/5fd1dd8417.js" crossorigin="anonymous"></script>
+
+    <!-- Academicons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" />
+    <link rel="icon" href="./images/favicon.png">
+  </head>
+
+  <body>
+
+    <!-- title / authors / icons -->
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-widescreen has-text-centered">
+          <!-- title -->
+          <h1 class="title is-size-1 is-size-2-mobile publication-title">
+            <b>Humans as a Calibration Pattern:</b><br/>Dynamic 3D Scene Reconstruction from<br/>Unsynchronized and Uncalibrated Videos
+          </h1>
+          <div class="is-size-5-tablet publication-institute">
+            <span class="author-block">Supplementary material for CVPR submission #563<br/>Anonymous authors</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- teasor -->
+    <section class="hero">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <img src="./images/teaser.png" width="100%" style="display: block; margin: auto" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="column is-full-width is-centered has-text-centered has-text-left-mobile">
+          <h2 class="subtitle is-size-3 has-text-weight-medium publication-keywords">
+            Abstract
+          </h2>
+          <div class="content has-text-justified">
+            <p>
+              Recent works on dynamic neural field reconstruction assume the input from synchronized multi-view videos whose poses are known. The input constraints often are not satisfied in real-world setups, making the approach impractical. We demonstrate that unsynchronized videos from unknown poses can generate dynamic neural fields as long as the videos capture human motion. Humans are one of the most common dynamic subjects captured in videos whose poses can be estimated using state-of-the-art libraries. While noisy, the estimated human shape and pose parameters provide a decent initialization point to start the highly non-convex and under-constrained problem of training a consistent dynamic neural representation. Given the pose and shape parameters of humans in individual frames, we formulate methods to calculate the time offsets between videos, followed by camera pose estimations that analyze the 3D joint positions. Then, we train the dynamic neural fields employing multiresolution grids while we concurrently refine both time offsets and camera poses. The setup still involves optimizing many parameters, therefore, we introduce a robust progressive learning strategy to stabilize the process. Experiments show that our approach achieves accurate spatiotemporal calibration and high-quality scene reconstruction in challenging conditions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="column is full-width is-centered has-text-centered">
+          <h2 class="subtitle is-size-3 has-text-weight-medium publication-keywords">
+            Method
+          </h2>
+          <img src="./images/method_overview.png" width="100%" style="display: block; margin: auto" />
+        </div>
+          <p class="normal-text">
+            From unsynchronized videos with unknown camera poses, we aim to calibrate accurate time offsets and camera poses while reconstructing dynamic 3D scenes.
+            We first extract human motion from each video independently.
+            Then we estimate time offsets and global camera poses by aligning human motions (Initialization stage).
+            We further refine both camera poses and time offsets by jointly optimizing them with dynamic NeRF with progressive training (Refinement stage).
+          </p>
+      </div>
+      <div class="container is-max-desktop">
+        <div class="fixed-grid has-2-cols">
+          <div class="grid row-gap-0">
+            <div class="cell" align="center">
+              <video class="comparison_video" autoplay controls muted loop playsinline height="100%">
+                <source src="./videos/office2_notaligned.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="cell" align="center">
+              <video class="comparison_video" autoplay controls muted loop playsinline height="100%">
+                <source src="./videos/office2_aligned.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+        <div class="fixed-grid has-2-cols caption">
+          <div class="grid">
+            <div claass="cell" align="center">
+              Not synchronized, unknown camera poses
+            </div>
+            <div claass="cell" align="center">
+              After our initialization stage (synchronized, known camera poses)
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <div class="column is full-width is-centered has-text-centered">
+          <h2 class="subtitle is-size-3 has-text-weight-medium publication-keywords">
+            Additional results
+          </h2>
+        </div>
+        <h3 class="subtitle is-size-4 has-text-weight-medium publication-keywords">
+          Camera pose accuracy
+        </h3>
+        <div class="fixed-grid has-3-cols">
+          <div class="grid">
+            <div class="cell" align="center">
+              <video class="results_video" id="chair" autoplay controls muted loop playsinline height="100%">
+                <source src="./videos/baseball_pose.mp4" type="video/mp4">
+              </video>
+              <p class="normal-text" style="font-variant: small-caps;">
+                Baseball
+              </p>
+            </div>
+          <div class="cell" align="center">
+            <video class="results_video" id="ship" autoplay controls muted loop playsinline height="100%">
+              <source src="./videos/office1_pose.mp4" type="video/mp4">
+            </video>
+              <p class="normal-text" style="font-variant: small-caps;">
+                Office1
+              </p>
+          </div>
+          <div class="cell" align="center">
+            <video class="results_video" id="lego" autoplay controls muted loop playsinline height="100%">
+              <source src="./videos/office2_pose.mp4" type="video/mp4">
+            </video>
+              <p class="normal-text" style="font-variant: small-caps;">
+                Office2
+              </p>
+          </div>
+          <div class="cell" align="center">
+            <video class="results_video" id="mic" autoplay controls muted loop playsinline height="100%">
+              <source src="./videos/office3_pose.mp4" type="video/mp4">
+            </video>
+              <p class="normal-text" style="font-variant: small-caps;">
+                Office3
+              </p>
+          </div>
+          <div class="cell" align="center">
+            <video class="results_video" id="hotdog" autoplay controls muted loop playsinline height="100%">
+              <source src="./videos/tennis_pose.mp4" type="video/mp4">
+            </video>
+              <p class="normal-text" style="font-variant: small-caps;">
+                Tennis
+              </p>
+          </div>
+        </div>
+        <p align="left" class="normal-text">
+          Our initialization stage estimates good initial camera poses by aligning human motions (first few frames of videos).
+          Then our refinement stage of joint optimization of calibration parameters and dynamic NeRF produces near-perfect camera poses.
+        </p>
+        </div>
+        <!--comparison with baselines-->
+        <h3 class="subtitle is-size-4 has-text-weight-medium publication-keywords">
+          Novel view synthesis results
+        </h3>
+        <div class="fixed-grid has-1-cols">
+          <div class="grid row-gap-0">
+            <div class="cell" align="center">
+              <video class="comparison_video" autoplay controls muted loop playsinline height="100%">
+                <source src="./videos/baseball_collated.mp4" type="video/mp4">
+              </video>
+              <p class="normal-text" style="font-variant: small-caps;">
+                Baseball
+              </p>
+            </div>
+            <div class="cell" align="center">
+              <video class="comparison_video" autoplay controls muted loop playsinline height="100%">
+                <source src="./videos/office1_collated.mp4" type="video/mp4">
+              </video>
+              <p class="normal-text" style="font-variant: small-caps;">
+                Office1
+              </p>
+            </div>
+            <div class="cell" align="center">
+              <video class="comparison_video" autoplay controls muted loop playsinline height="100%">
+                <source src="./videos/office2_collated.mp4" type="video/mp4">
+              </video>
+              <p class="normal-text" style="font-variant: small-caps;">
+                Office2
+              </p>
+            </div>
+            <div class="cell" align="center">
+              <video class="comparison_video" autoplay controls muted loop playsinline height="100%">
+                <source src="./videos/office3_collated.mp4" type="video/mp4">
+              </video>
+              <p class="normal-text" style="font-variant: small-caps;">
+                Office3
+              </p>
+            </div>
+            <div class="cell" align="center">
+              <video class="comparison_video" autoplay controls muted loop playsinline height="100%">
+                <source src="./videos/tennis_collated.mp4" type="video/mp4">
+              </video>
+              <p class="normal-text" style="font-variant: small-caps;">
+                Tennis
+              </p>
+            </div>
+          </div>
+        </div>
+        </div>
+        
+        
+      </div>
+    </section>
+
+
+  </body>
+
+</html>
