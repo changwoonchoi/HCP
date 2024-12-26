@@ -51,6 +51,15 @@
   max-height: 60px;
 }
 
+.tldr {
+  font-family: 'Jost';
+  font-weight: 400;
+  font-size: 18px;
+  margin-top: 10px;
+  font-style: italic;
+  text-align: center;
+}
+
 .logo-list {
   display: flex;
   flex-wrap: nowrap;
