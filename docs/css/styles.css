@@ -125,12 +125,62 @@
 }
 
 .link-button {
+  font-family: Jost;
   color: #f5f5f5;
   background-color: #143163;
   border-color: #143163;
   margin-left: 0.1rem;
   margin-right: 0.1rem;
   margin-bottom: 0.5rem;
+}
+
+.link-button-github {
+  font-family: Jost;
+  color: #f5f5f5;
+  background-color: #252525;
+  border-color: #00000000;
+  margin-left: 0.1rem;
+  margin-right: 0.1rem;
+  margin-bottom: 0.5rem;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.link-button-github:hover {
+  font-family: Jost;
+  color: #f5f5f5;
+  background-color: #6b6b6b;
+  border-color: #00000000;
+  margin-left: 0.1rem;
+  margin-right: 0.1rem;
+  margin-bottom: 0.5rem;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+
+.link-button-arxiv {
+  font-family: Jost;
+  color: #f5f5f5;
+  background-color: #a72121;
+  border-color: #00000000;
+  margin-left: 0.1rem;
+  margin-right: 0.1rem;
+  margin-bottom: 0.5rem;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.link-button-arxiv:hover {
+  font-family: Jost;
+  color: #f5f5f5;
+  background-color: #cf4d4d;
+  border-color: #00000000;
+  margin-left: 0.1rem;
+  margin-right: 0.1rem;
+  margin-bottom: 0.5rem;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 .link-button:hover {
