@@ -6,7 +6,7 @@
 <img src="assets/teaser.png" alt="teaser image"/>
 
 <br/>
-Official implementation of <b>Humans as a Calibration Pattern: Dynamic 3D Scene Reconstruction from Unsynchronized and Uncalibrated Videos</b>.
+Official implementation of <b>Humans as a Calibration Pattern: Dynamic 3D Scene Reconstruction from Unsynchronized and Uncalibrated Videos, ICCV 2025</b>.
 
 ## 
 Code will be released soon!
